@@ -22,9 +22,9 @@
         }
     ],
     "agent": {
-        "child_exec": "{PROJECT_DIR}/python/python.exe",
+        "child_exec": "python",
         "child_args": [
-            "{PROJECT_DIR}/agent/main.py"
+            "{PROJECT_DIR}/../agent/main.py"
         ]
     },
     "task": [
@@ -132,7 +132,7 @@
                     ]
                 }
             },
-            "doc": "[size:15]基地奖励领取一条龙，包括：[/size]\n\n[size:15]一键领取资源申请奖励。[/size]\n[size:15]一键领取案例解析奖励并进行解析。[/size]\n[size:15]一键领取酬谢奖励。[/size]"
+            "doc": "[size:15]基地奖励领取一条龙，启用本任务后请取消以下任务，避免重复运行，包括：[/size]\n\n[size:15]一键领取资源申请奖励。[/size]\n[size:15]一键领取案例解析奖励并进行解析。[/size]\n[size:15]一键领取酬谢奖励。[/size]"
         },
         {
             "name": "好感度",
@@ -241,9 +241,54 @@
             "name": "领取拼图活动代币",
             "entry": "领取拼图活动代币",
             "doc": "[size:20]活动已过期！不要开启这个任务！[/size]\n\n[size:15]岁岁依然限时活动代币领取。只是领取每日任务代币，需要手动拼图。[/size]"
+        },
+        {
+            "name": "思绪张数任务（待测试）",
+            "entry": "思绪张数任务",
+            "option": [
+                "思绪张数任务辩论次数"
+            ],
+            "doc": "[size:15]打消失的黄金协理04，战力不足时也会进行辩论[/size]\n\n[size:15]使用前请手动打一遍协理04[/size]"
         }
     ],
     "option": {
+        "思绪张数任务辩论次数": {
+            "cases": [
+                {
+                    "name": "3次",
+                    "pipeline_override": {
+                        "HitsLimiter_Click_协理04_黄金": {
+                            "custom_action_param": {
+                                "current_count": 0,
+                                "max_count": 3
+                            }
+                        }
+                    }
+                },
+                {
+                    "name": "5次",
+                    "pipeline_override": {
+                        "HitsLimiter_Click_协理04_黄金": {
+                            "custom_action_param": {
+                                "current_count": 0,
+                                "max_count": 5
+                            }
+                        }
+                    }
+                },
+                {
+                    "name": "10次",
+                    "pipeline_override": {
+                        "HitsLimiter_Click_协理04_黄金": {
+                            "custom_action_param": {
+                                "current_count": 0,
+                                "max_count": 10
+                            }
+                        }
+                    }
+                }
+            ]
+        },
         "复盘次数": {
             "cases": [
                 {
