@@ -11,13 +11,11 @@
         "action": "Click",
         "recognition": "TemplateMatch",
         "template": "好感/手机.png",
-        "pre_delay": 800,
-        "post_delay": 800,
+        "pre_delay": 300,
+        "threshold": 0.7,
+        "post_delay": 300,
         "roi": [
-            39,
-            988,
-            71,
-            67
+            23,974,113,122
         ],
         "next": [
             "Click_选择好感男主"
@@ -27,7 +25,8 @@
         "action": "Click",
         "recognition": "TemplateMatch",
         "template": "",
-        "pre_delay": 1000,
+        "threshold": 0.7,
+        "pre_delay": 300,
         "roi": [
             120,
             135,
@@ -36,6 +35,9 @@
         ],
         "next": [
             "Click_好感交流"
+        ],
+        "interrupt": [
+            "Click_选择好感男主"
         ]
     },
     "Click_好感交流": {
